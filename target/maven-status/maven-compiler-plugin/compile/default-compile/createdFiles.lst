@@ -1,6 +1,12 @@
 com\tut\Address.class
-com\tut\EmbeddedDemo.class
-com\tut\Certificate.class
+com\onetoone\Question.class
 com\tut\FetchData.class
-com\tut\Student.class
+com\tut\Certificate.class
+com\onetoone\Answer.class
 com\tut\App.class
+com\onetomany\AnswerOneToMany.class
+com\onetomany\QuestionOneToMany.class
+com\tut\EmbeddedDemo.class
+com\onetoone\MapDemo.class
+com\tut\Student.class
+com\onetomany\OneToManyDemo.class

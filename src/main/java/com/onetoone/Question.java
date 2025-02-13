@@ -1,4 +1,4 @@
-package com.map;
+package com.onetoone;
 
 import javax.persistence.*;
 

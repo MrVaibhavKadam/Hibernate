@@ -1,31 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <!-- PostgreSQL JDBC Driver -->
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hibernate_mapping</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">1234</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="format_sql">true</property>
 
-        <!-- Database Connection URL -->
-        <property name="connection.url">jdbc:mysql://localhost:3306/myhiber</property>
+        <mapping class="com.onetoone.Question"/>
+        <mapping class="com.onetoone.Answer"/>
 
-        <!-- PostgreSQL Username and Password -->
-        <property name="connection.username">root</property>
-        <property name="connection.password">Vaibhav143@</property>
+        <mapping class="com.manytomany.Employee"/>
+        <mapping class="com.manytomany.Project"/>
 
-        <!-- Hibernate Dialect for PostgreSQL -->
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
-        <!-- Show SQL Queries in Console -->
-        <property name="show_sql">true</property>
-
-        <!-- Automatically Update Schema -->
-        <property name="hbm2ddl.auto">update</property>
-
-        <mapping class = "com.tut.Student"/>
-        <mapping class = "com.tut.Address"/>
-
-        <mapping class = "com.onetomany.QuestionOneToMany"/>
-        <mapping class = "com.onetomany.AnswerOneToMany"/>
     </session-factory>
 </hibernate-configuration>
