@@ -5,37 +5,37 @@ import javax.persistence.*;
 @Entity
 public class Question {
     @Id
-    @Column(name = "question_id")
-    private int questionId;
-    private String question;
+    @Column(name = "Question_id")
+    private int QuestionId;
+    private String Question;
 
     @OneToOne
-    @JoinColumn (name = "a_id")
+    @JoinColumn(name = "a_id")
     private Answer answer;
 
     public Question() {
     }
 
-    public Question(int questionId, String question, Answer answer) {
-        this.questionId = questionId;
-        this.question = question;
+    public Question(int QuestionId, String Question, Answer answer) {
+        this.QuestionId = QuestionId;
+        this.Question = Question;
         this.answer = answer;
     }
 
     public int getQuestionId() {
-        return questionId;
+        return QuestionId;
     }
 
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
+    public void setQuestionId(int QuestionId) {
+        this.QuestionId = QuestionId;
     }
 
     public String getQuestion() {
-        return question;
+        return Question;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestion(String Question) {
+        this.Question = Question;
     }
 
     public Answer getAnswer() {

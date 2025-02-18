@@ -1,8 +1,9 @@
 package com.onetomany;
 
-import com.onetomany.QuestionOneToMany;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class AnswerOneToMany {
@@ -13,7 +14,7 @@ public class AnswerOneToMany {
     private String answer;
 
     @ManyToOne
-    private QuestionOneToMany question;
+    private QuestionOneToMany Question;
 
     public AnswerOneToMany(int answerId, String answer) {
         this.answerId = answerId;
@@ -24,15 +25,15 @@ public class AnswerOneToMany {
     }
 
     public QuestionOneToMany getQuestion() {
-        return question;
+        return Question;
     }
 
-    public AnswerOneToMany(QuestionOneToMany question) {
-        this.question = question;
+    public AnswerOneToMany(QuestionOneToMany Question) {
+        this.Question = Question;
     }
 
-    public void setQuestion(QuestionOneToMany question) {
-        this.question = question;
+    public void setQuestion(QuestionOneToMany Question) {
+        this.Question = Question;
     }
 
     public int getAnswerId() {

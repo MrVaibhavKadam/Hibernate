@@ -1,44 +1,45 @@
 package com.onetomany;
 
-import com.onetomany.AnswerOneToMany;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
 public class QuestionOneToMany {
 
     @Id
-    @Column(name = "question_id")
-    private int questionId;
-    private String question;
+    @Column(name = "Question_id")
+    private int QuestionId;
+    private String Question;
 
-    @OneToMany (mappedBy = "question")
+    @OneToMany(mappedBy = "Question")
     private List<AnswerOneToMany> answer;
 
     public QuestionOneToMany() {
     }
 
-    public QuestionOneToMany(int questionId, String question, List<AnswerOneToMany> answer) {
-        this.questionId = questionId;
-        this.question = question;
+    public QuestionOneToMany(int QuestionId, String Question, List<AnswerOneToMany> answer) {
+        this.QuestionId = QuestionId;
+        this.Question = Question;
         this.answer = answer;
     }
 
     public int getQuestionId() {
-        return questionId;
+        return QuestionId;
     }
 
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
+    public void setQuestionId(int QuestionId) {
+        this.QuestionId = QuestionId;
     }
 
     public String getQuestion() {
-        return question;
+        return Question;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestion(String Question) {
+        this.Question = Question;
     }
 
     public List<AnswerOneToMany> getAnswer() {

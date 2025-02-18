@@ -1,0 +1,18 @@
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/orm/hbm">
+    <class name="xmlbasedexample.onetoonemapping.QuestionX" table="QuestionX">
+
+        <id name="questionId" column="q_Id">
+            <generator class="increment"/>
+        </id>
+        <property name="question" column="Questions"/>
+
+
+        <one-to-one name="answer"
+                    class="xmlbasedexample.onetoonemapping.AnswerX"
+
+                    cascade="all"/>
+
+
+    </class>
+
+</hibernate-mapping>

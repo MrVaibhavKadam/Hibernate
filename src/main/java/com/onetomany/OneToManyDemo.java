@@ -5,9 +5,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class OneToManyDemo {
 
     public static void main(String[] args) {
@@ -54,10 +51,10 @@ public class OneToManyDemo {
 //        session.save(a2);
 //        session.save(a3);
 
-        QuestionOneToMany q = (QuestionOneToMany)session.get(QuestionOneToMany.class, 1212);
+        QuestionOneToMany q = (QuestionOneToMany) session.get(QuestionOneToMany.class, 1212);
         System.out.println(q.getQuestion());
 
-        for (AnswerOneToMany ans:q.getAnswer())
+        for (AnswerOneToMany ans : q.getAnswer())
             System.out.println(ans.getAnswer());
 
         tx.commit();

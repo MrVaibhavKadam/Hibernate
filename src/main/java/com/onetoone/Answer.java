@@ -9,9 +9,10 @@ public class Answer {
     @Column(name = "answer_id")
     private int answerId;
     private String answer;
-    @OneToOne (mappedBy = "answer")//using this the answer table will not create foreign key only question table shows FK
+    @OneToOne(mappedBy = "answer")
+//using this the answer table will not create foreign key only Question table shows FK
     @JoinColumn(name = "q_id")
-    private Question question;
+    private Question Question;
 
     public Answer(int answerId, String answer) {
         this.answerId = answerId;
@@ -22,15 +23,15 @@ public class Answer {
     }
 
     public Question getQuestion() {
-        return question;
+        return Question;
     }
 
-    public Answer(Question question) {
-        this.question = question;
+    public Answer(Question Question) {
+        this.Question = Question;
     }
 
-    public void setQuestion(Question question) {
-        this.question = question;
+    public void setQuestion(Question Question) {
+        this.Question = Question;
     }
 
     public int getAnswerId() {

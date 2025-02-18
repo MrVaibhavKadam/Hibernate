@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="xmlbasedexample.onetoonemapping.AnswerX" table="AnswerX">
+
+        <id name="answerId" column="a_Id">
+            <generator class="increment"/>
+        </id>
+        <property name="answer" column="answers"/>
+        <one-to-one name="question" class="xmlbasedexample.onetoonemapping.QuestionX">
+            
+        </one-to-one>
+
+
+    </class>
+
+</hibernate-mapping>
