@@ -13,11 +13,19 @@
         <property name="hibernate.show_sql">true</property>
         <property name="format_sql">true</property>
 
+        <mapping resource="Student.hbm.xml"/>
+        <mapping class="xmlbasedexample.Student"/>
+
+
+        <mapping resource="AnswerX.hbm.xml"/>
+        <mapping resource="QuestionX.hbm.xml"/>
+
+
         <mapping class="com.onetoone.Question"/>
         <mapping class="com.onetoone.Answer"/>
 
-        <mapping class="com.manytomany.Employee"/>
-        <mapping class="com.manytomany.Project"/>
+        <!--                <mapping class="com.manytomany.Employee"/>-->
+        <!--                <mapping class="com.manytomany.Project"/>-->
 
 
     </session-factory>

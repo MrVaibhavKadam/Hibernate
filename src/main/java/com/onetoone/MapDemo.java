@@ -47,7 +47,7 @@ public class MapDemo {
         tx.commit();
 
         //Fetching
-        Question newQ =  session.get(Question.class, 1212);
+        Question newQ = session.get(Question.class, 1212);
         System.out.println(newQ.getQuestion());
         System.out.println(newQ.getAnswer().getAnswer());//first .getAnswer() - gives answer object(i.e a1) and second gives actual answer.
 
