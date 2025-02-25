@@ -9,20 +9,22 @@
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">1234</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">true</property>
         <property name="format_sql">true</property>
 
-        <mapping resource="Student.hbm.xml"/>
-        <mapping class="xmlbasedexample.Student"/>
+        <mapping class="com.tut.Student"/>
+
+        <!--        <mapping resource="Student.hbm.xml"/>-->
+        <!--        <mapping class="xmlbasedexample.Student"/>-->
 
 
-        <mapping resource="AnswerX.hbm.xml"/>
-        <mapping resource="QuestionX.hbm.xml"/>
+        <!--        <mapping resource="AnswerX.hbm.xml"/>-->
+        <!--        <mapping resource="QuestionX.hbm.xml"/>-->
 
 
-        <mapping class="com.onetoone.Question"/>
-        <mapping class="com.onetoone.Answer"/>
+        <!--        <mapping class="com.onetoone.Question"/>-->
+        <!--        <mapping class="com.onetoone.Answer"/>-->
 
         <!--                <mapping class="com.manytomany.Employee"/>-->
         <!--                <mapping class="com.manytomany.Project"/>-->
