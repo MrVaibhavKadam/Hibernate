@@ -1,9 +1,6 @@
 package com.onetomany;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -14,7 +11,7 @@ public class QuestionOneToMany {
     private int QuestionId;
     private String Question;
 
-    @OneToMany(mappedBy = "Question")
+    @OneToMany(mappedBy = "Question", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<AnswerOneToMany> answer;
 
     public QuestionOneToMany() {
