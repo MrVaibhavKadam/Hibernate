@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="xmlbasedexample.onetomany.Department" table="department">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="name" column="name"/>
+
+        <set name="employees" inverse="true" cascade="all">
+            <key column="department_id"/>
+            <one-to-many class="xmlbasedexample.onetomany.Employee"/>
+        </set>
+    </class>
+</hibernate-mapping>
