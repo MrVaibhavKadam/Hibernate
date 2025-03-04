@@ -1,13 +1,15 @@
-package com.compositekeyexample.embeddableclass;
+package com.compositekeyexample.usingidclass;
 
 
+import com.compositekeyexample.embeddableclass.OrderPK;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 
@@ -16,10 +18,15 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@IdClass(OrderPK.class)
 @Table(name = "orders")
 public class Order {
 
-    @EmbeddedId
-    private OrderPK orderId;// Specifies that this entity uses a composite primary key
+    @Id
+    private int orderId;
+
+    @Id
+    private int productId;
+
     private String customerName;
 }

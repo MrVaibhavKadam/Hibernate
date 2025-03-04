@@ -11,8 +11,11 @@
         <property name="hibernate.show_sql">true</property>
         <property name="format_sql">true</property>
 
-        <mapping class = "org.example.User"/>
+        <mapping class="org.example.User"/>
+        <!--        <mapping class="com.compositekeyexample.embeddableclass.Order"/>-->
 
+        <mapping class="crudandcascade.Project"/>
+        <mapping class="crudandcascade.Student"/>
 
     </session-factory>
 </hibernate-configuration>

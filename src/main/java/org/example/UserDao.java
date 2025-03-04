@@ -7,23 +7,23 @@ import java.util.List;
 
 public class UserDao {
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
         Transaction tx = null;
 
-        try(Session session = HibernateUtils.getFactory().openSession()){
+        try (Session session = HibernateUtils.getFactory().openSession()) {
             tx = session.beginTransaction();
             session.save(user);
             tx.commit();
         } catch (Exception e) {
-            if (tx != null){
+            if (tx != null && tx.getStatus().canRollback()) {
                 tx.rollback();
             }
             e.printStackTrace();
         }
     }
 
-    public List<User> getUsers(){
-        try(Session session = HibernateUtils.getFactory().openSession()){
+    public List<User> getUsers() {
+        try (Session session = HibernateUtils.getFactory().openSession()) {
             return session.createQuery("FROM User", User.class).list();
         }
     }
