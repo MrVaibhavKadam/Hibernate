@@ -1,15 +1,22 @@
 package crudandcascade;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
 public class StudentDao {
 
-    public static void saveStudent(Student std) {
+    private final SessionFactory factory;
+
+    public StudentDao(SessionFactory factory) {
+        this.factory = factory;
+    }
+
+    public void saveStudent(Student std) {
         Transaction tx = null;
-        try (Session session = HibernateUtils.getFactory().openSession()) {
+        try (Session session = factory.openSession()) {
             tx = session.beginTransaction();
             session.save(std);
             tx.commit();
@@ -21,9 +28,14 @@ public class StudentDao {
     }
 
     public List<Student> getStudents() {
-        try (Session session = org.example.HibernateUtils.getFactory().openSession()) {
+//        try (Session session = org.example.HibernateUtils.getFactory().openSession()) {
+//            return session.createQuery("SELECT s FROM Student s LEFT JOIN FETCH s.projects", Student.class).list();
+//        }
+        try (Session session = factory.openSession()) {
             return session.createQuery("SELECT s FROM Student s LEFT JOIN FETCH s.projects", Student.class).list();
         }
+
+//      You can use this method also to fetch data of projects with student.
 //        try (Session session = HibernateUtils.getFactory().openSession()) {
 //            Student student = session.get(Student.class, studentId);
 //
@@ -37,7 +49,7 @@ public class StudentDao {
 
     public void updateStudent(Student std) {
         Transaction tx = null;
-        try (Session session = HibernateUtils.getFactory().openSession()) {
+        try (Session session = factory.openSession()) {
             tx = session.beginTransaction();
             session.update(std);
             tx.commit();
@@ -53,7 +65,7 @@ public class StudentDao {
         Transaction tx = null;
         Session session = null;
         try {
-            session = HibernateUtils.getFactory().openSession();
+            session = factory.openSession();
             tx = session.beginTransaction();
 
             Student student = session.get(Student.class, studentId);
