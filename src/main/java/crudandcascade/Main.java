@@ -1,10 +1,14 @@
 package crudandcascade;
 
+import org.hibernate.SessionFactory;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        SessionFactory factory = HibernateUtils.getFactory();
+        StudentDao studentDao = new StudentDao(factory);
 
         Student std1 = new Student();
         std1.setSName("Vaibhav");
@@ -17,10 +21,10 @@ public class Main {
 
         std1.setProjects(Arrays.asList(p1, p2));
 
-        StudentDao.saveStudent(std1);
+        studentDao.saveStudent(std1);
 
         //read
-        StudentDao studentDao = new StudentDao();
+
         List<Student> students = studentDao.getStudents();
         students.forEach(System.out::println);
 
@@ -30,6 +34,7 @@ public class Main {
         student.setSName("Ravi");
         studentDao.updateStudent(student);
         System.out.println(student);
+
 
     }
 }
