@@ -12,6 +12,7 @@ import java.util.List;
 
 public class CasCadeExample {
     public static void main(String[] args) {
+	System.out.print("Session Started");
 
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
